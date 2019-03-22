@@ -20,6 +20,7 @@ module.exports = {
       ].join('\n'), true)
       .addField('❯❯ Versions', `• [Node](https://nodejs.org): ${process.version}\n• [Discord.js](https://discord.js.org): v${version}`, true)
       .addField('❯❯ Source Code', '• [View Here](https://github.com/syztumGG/predlagam.)', true)
+      .addField('❯❯ Hosted With', '• [Heroku](https://heroku.com)', true)
       .setThumbnail(client.user.displayAvatarURL())
       .setFooter('© 2019 サム 𝐬𝐲𝐳𝐭𝐮𝐦.');
 
