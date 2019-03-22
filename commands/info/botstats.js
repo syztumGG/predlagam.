@@ -10,7 +10,7 @@ module.exports = {
   exec(client, message) {
     const embed = new MessageEmbed()
       .setColor('#4cb9fa')
-      .addField('❯❯ Uptime', `• ${duration(client.uptime).format('D [days], H [hours], m [minutes], s [seconds]')}`, true)
+      .addField('❯❯ Uptime', `• ${duration(client.uptime).format('D [d], H [h], m [m], s [s]')}`, true)
       .addField('❯❯ Memory Usage', `• ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} KB`, true)
       .addField('❯❯ General Stats', [
         `• Servers: ${client.guilds.size.toLocaleString('en-US')}`,
