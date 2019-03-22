@@ -5,7 +5,9 @@ predlagam. is the ultimate way to add suggestions to your server. After inviting
 • [Discord.js](https://discord.js.org) v12
 
 ### ❯❯ Links
-• [Invite link](https://discordapp.com/oauth2/authorize?client_id=557063959606460458&permissions=537259088&scope=bot)
+• [Invite bot](https://discordapp.com/oauth2/authorize?client_id=557063959606460458&permissions=537259088&scope=bot)
+
+• [discordbots.org](https://discordbots.org/bot/557063959606460458)
 
 • [Support server](https://discord.gg/rf3zd3e)
 
