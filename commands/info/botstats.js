@@ -14,7 +14,7 @@ module.exports = {
       .addField('❯❯ Memory Usage', `• ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} KB`, true)
       .addField('❯❯ General Stats', [
         `• Servers: ${client.guilds.size.toLocaleString('en-US')}`,
-        `• Channels: ${client.channels.filter(c => ['text', 'voice'].includes(c.type)).size.toLocaleString('en-US')}`,
+        `• Channels: ${client.channels.filter(chan => ['text', 'voice'].includes(chan.type)).size.toLocaleString('en-US')}`,
         `• Users: ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString('en-US')}`,
         `• Commands: ${client.commands.size}`,
       ].join('\n'), true)
