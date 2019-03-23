@@ -13,7 +13,7 @@ module.exports = {
     const voting = message.guild.channels.find(c => c.name === vote && c.type === 'text');
     const suggestions = message.guild.channels.find(c => c.name === reg && c.type === 'text');
 
-    if (message.channel !== suggestions) return message.channel.send(`Suggestions only work in ${suggestions}`);
+    if (message.channel !== suggestions) return message.channel.send(`Suggestions only work in ${suggestions || '#suggestions'}`);
     if (!voting) return message.channel.send(`Could not find a voting channel. Use \`${client.PREFIX}autoconfig\` for the bot to set itself up.`);
     const suggestion = new MessageEmbed()
       .setTitle('❯❯ Suggestion from')
@@ -21,7 +21,7 @@ module.exports = {
       .addField('❯❯ Status', '• Awaiting action', true)
       .setTimestamp();
 
-    const suggestionMessage = await voting.send(suggestion)
+    const suggestionMessage = await voting.send(suggestion);
     await suggestionMessage.edit(suggestionMessage.embeds[0].addField('❯❯ Response ID', `• ${suggestionMessage.id}`, true));
     await suggestionMessage.react('463443171901308928');
     await suggestionMessage.react('463443171502718978');
