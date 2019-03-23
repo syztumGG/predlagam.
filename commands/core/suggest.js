@@ -23,11 +23,12 @@ module.exports = {
 
     const suggestionMessage = await voting.send(suggestion);
     await suggestionMessage.edit(suggestionMessage.embeds[0].addField('❯❯ Response ID', `• ${suggestionMessage.id}`, true));
-    await suggestionMessage.react('463443171901308928');
-    await suggestionMessage.react('463443171502718978');
+    await suggestionMessage.react('463443171901308928').catch(); // intentionally blank to not bother the user
+    await suggestionMessage.react('463443171502718978').catch(); // intentionally blank to not bother the user
     message.channel.send(`Suggestion posted in ${voting}`);
 
     if (!logs) return message.channel.send(`Could not find a log channel. Use \`${client.PREFIX}autoconfig\` for the bot to set itself up.`);
+    if (!message.guild.me.permissionsIn(logs).has(['VIEW_MESSAGES', 'SEND_MESSAGES', 'EMBED_LINKS'])) return message.channel.send('I do not have the required permissions to type in the log channel.');
     const suggestionLog = new MessageEmbed()
       .setColor('#4cb9fa')
       .addField('❯❯ Author Info', [

@@ -59,10 +59,8 @@ Would you like the message or the file? :: [ m for message || h for hastebin ${e
     const suggestions = message.guild.channels.find(c => c.name === reg && c.type === 'text');
 
     const reply = await voting.messages.fetch(args[0]);
-    if (!reply) {
-      message.channel.send('That message could not be found.');
-      return;
-    }
+    if (!reply) return message.channel.send('That message could not be found.');
+
     const voteGetter = reply.reactions.sort((a, b) => a.emoji.name.localeCompare(b.emoji.name)).map(reaction => `• ${reaction.emoji}: ${reaction.count}`);
 
     const replyEmbed = new MessageEmbed()
@@ -79,7 +77,8 @@ Would you like the message or the file? :: [ m for message || h for hastebin ${e
     await reply.edit(`{ SUGGESTION ${status.split('•')[1].split('<')[0].trim()} }`, { embed: replyEmbed });
     message.delete();
 
-    if (!logs) return;
+    if (!logs) return message.channel.send(`Could not find a log channel. Use \`${client.PREFIX}autoconfig\` for the bot to set itself up.`);
+    if (!message.guild.me.permissionsIn(logs).has(['VIEW_MESSAGES', 'SEND_MESSAGES', 'EMBED_LINKS'])) return message.channel.send('I do not have the required permissions to type in the log channel.');
     const updateLogs = new MessageEmbed()
       .setColor(reply.embeds[0].color)
       .addField('❯❯ Action', `• ${reply.content}`)
@@ -94,7 +93,7 @@ Would you like the message or the file? :: [ m for message || h for hastebin ${e
       .setThumbnail(message.author.displayAvatarURL())
       .setTimestamp();
 
-    logs.send('📤 Suggestion action occurred:', { embed: updateLogs });
+    return logs.send('📤 Suggestion action occurred:', { embed: updateLogs });
   }, // used in 3 commands and you already know i'm not typing this out again.
 };
 
