@@ -1,4 +1,4 @@
-# predlagam.
+# predlagam. [![Status](https://discordbots.org/api/widget/status/557063959606460458.svg)](https://discordbots.org/bot/557063959606460458)
 predlagam. is the ultimate way to add suggestions to your server. If you have any problems, questions, or suggestions, don't hesitate to join the support server and ask. Shout out to open-source.
 
 ## ❯❯ Motivation
