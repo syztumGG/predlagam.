@@ -6,9 +6,10 @@ module.exports = {
   aliases: ['h'],
   usage: '[command name]',
   exec(client, message, args) {
+    const blocked = ['base', 'eval', 'restart'];
     const availableCommands = (message.guild
       ? client.commands.filter(cmd => !cmd.perms || message.member.permissionsIn(message.channel).has(cmd.perms))
-      : client.commands.filter(cmd => !cmd.perms && !cmd.guildOnly)).filter(cmd => cmd.name !== 'eval'); // just remove eval
+      : client.commands.filter(cmd => !cmd.perms && !cmd.guildOnly)).filter(cmd => blocked.includes(cmd.name)); // just remove eval
 
     if (!args.length) {
       const listEmbed = new MessageEmbed()
@@ -23,7 +24,7 @@ module.exports = {
       return message.channel.send(listEmbed);
     }
     const cmd = availableCommands.find(command => command.name === args[0] || (command.aliases && command.aliases.includes(args[0])));
-    if (!cmd || ['base', 'eval'].includes(cmd.name)) return message.channel.send(`Sorry, that's not a valid command name. Use \`${client.PREFIX}help\` to view the list of available commands.`);
+    if (!cmd || blocked.includes(cmd.name)) return message.channel.send(`Sorry, that's not a valid command name. Use \`${client.PREFIX}help\` to view the list of available commands.`);
 
     const commandEmbed = new MessageEmbed()
       .setColor('#4cb9fa')
