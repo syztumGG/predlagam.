@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = async (client, guild) => {
-  const guildCreateEmbed = new MessageEmbed()
+  const guildDeleteEmbed = new MessageEmbed()
     .setColor('#4cb9fa')
     .addField('❯❯ Guild Info', [
       `• Name: ${guild}`,
@@ -17,5 +17,5 @@ module.exports = async (client, guild) => {
     .setThumbnail(guild.iconURL())
     .setTimestamp();
 
-  client.channels.get('558904119440572426').send('📥 Joined guild:', { embed: guildCreateEmbed });
+  client.channels.get('558904119440572426').send('📤 Left guild:', { embed: guildDeleteEmbed });
 };
