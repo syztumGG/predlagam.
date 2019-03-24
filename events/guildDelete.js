@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = async (client, guild) => {
   const guildDeleteEmbed = new MessageEmbed()
-    .setColor('#4cb9fa')
+    .setColor('#ea3842')
     .addField('❯❯ Guild Info', [
       `• Name: ${guild}`,
       `• ID: ${guild.id}`,
