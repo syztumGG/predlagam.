@@ -26,7 +26,7 @@ predlagam. is the ultimate way to add suggestions to your server. If you have an
 
 • Filter help command based on available commands to the user.
 
-• If you have any ideas, please let me know! It's open source for a reason ‒ I love hearing other peoples' ideas.
+• If you have any suggestions, please let me know! It's open source for a reason ‒ I love hearing other peoples' ideas.
 
 ### ❯❯ Library
 • [Discord.js](https://discord.js.org) v12
