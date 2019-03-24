@@ -5,8 +5,8 @@ module.exports = {
   args: true,
   usage: '<message ID> [reason]',
   guildOnly: true,
+  perms: ['ADMINISTRATOR'],
   exec(client, message, args) {
-    if (!message.member.hasPermission('ADMINISTRATOR')) return;
     client.yesNoMaybe(client, message, args, { color: '#ea3842', status: '• DENIED <:disagree:463443171502718978>' });
   },
 };

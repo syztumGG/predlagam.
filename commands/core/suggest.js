@@ -28,7 +28,7 @@ module.exports = {
     message.channel.send(`Suggestion posted in ${voting}`);
 
     if (!logs) return message.channel.send(`Could not find a log channel. Use \`${client.PREFIX}autoconfig\` for the bot to set itself up.`);
-    if (!message.guild.me.permissionsIn(logs).has(['VIEW_MESSAGES', 'SEND_MESSAGES', 'EMBED_LINKS'])) return message.channel.send('I do not have the required permissions to type in the log channel.');
+    if (!message.guild.me.permissionsIn(logs).has(['VIEW_CHANNEL', 'SEND_MESSAGES', 'EMBED_LINKS'])) return message.channel.send('I do not have the required permissions to type in the log channel.');
     const suggestionLog = new MessageEmbed()
       .setColor('#4cb9fa')
       .addField('❯❯ Author Info', [

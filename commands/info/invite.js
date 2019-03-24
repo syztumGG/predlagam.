@@ -3,7 +3,6 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'invite',
   desc: 'Invite links.',
-  guildOnly: false,
   exec(client, message) {
     client.generateInvite([
       'MANAGE_CHANNELS',

@@ -3,10 +3,10 @@ module.exports = {
   desc: 'Automatically configures the bot in your server. Will create a separate suggestions category with multiple channels and permissions.',
   aliases: ['ac', 'config', 'setup'],
   guildOnly: true,
+  perms: ['ADMINISTRATOR'],
   async exec(client, message) {
     const { suggestChannels: { vote, log, reg }, getChannelPerms } = client;
 
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This command is only available for administrators.');
     if (!message.guild.me.hasPermission('MANAGE_CHANNELS')) return message.channel.send('I need the `MANAGE_CHANNELS` permission to set myself up.');
 
     const parent = message.guild.channels.find(c => c.name === 'suggestions' && c.type === 'category') || await message.guild.channels.create('suggestions', { type: 'category' });

@@ -5,8 +5,9 @@ module.exports = {
   desc: 'For easy command cloning... yuh',
   aliases: ['easter', 'egg'],
   args: false,
-  usage: 'none',
+  usage: 'N/A',
   guildOnly: false,
+  perms: false,
   exec(client, message) {
     const grid = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

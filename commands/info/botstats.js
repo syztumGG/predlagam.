@@ -6,7 +6,6 @@ module.exports = {
   name: 'botstats',
   desc: 'Displays various bot statistics.',
   aliases: ['bs', 'stats', 'i', 'info'],
-  guildOnly: false,
   exec(client, message) {
     const embed = new MessageEmbed()
       .setColor('#4cb9fa')
