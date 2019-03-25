@@ -9,7 +9,7 @@ module.exports = {
     const blocked = ['base', 'eval', 'restart'];
     const availableCommands = (message.guild
       ? client.commands.filter(cmd => !cmd.perms || message.member.permissionsIn(message.channel).has(cmd.perms))
-      : client.commands.filter(cmd => !cmd.perms && !cmd.guildOnly)).filter(cmd => blocked.includes(cmd.name)); // just remove eval
+      : client.commands.filter(cmd => !cmd.perms && !cmd.guildOnly)).filter(cmd => !blocked.includes(cmd.name)); // just remove eval
 
     if (!args.length) {
       const listEmbed = new MessageEmbed()
