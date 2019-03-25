@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = async (client, guild) => {
+  let inc = 0;
   const guildCreateEmbed = new MessageEmbed()
     .setColor('#26de81')
     .addField('❯❯ Guild Info', [
@@ -12,7 +13,11 @@ module.exports = async (client, guild) => {
       `• Channels: ${guild.channels.filter(chan => ['text', 'voice'].includes(chan.type)).size.toLocaleString('en-US')}`,
       `• Members: ${guild.memberCount.toLocaleString('en-US')}`,
       `• Roles: ${guild.roles.size.toLocaleString('en-US')}`,
-      `• Emoji: ${guild.emojis.size.toLocaleString('en-US')}`,
+    ].join('\n'))
+    .addField('❯❯ Emoji', [
+      `• Count: ${guild.emojis.size}`,
+      // eslint-disable-next-line no-cond-assign
+      guild.emojis.map(emoji => `${emoji}${(inc += 1) % 7 ? '' : '\n'}`).join(''),
     ].join('\n'))
     .setThumbnail(guild.iconURL())
     .setTimestamp();
