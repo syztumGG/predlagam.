@@ -16,6 +16,8 @@ module.exports = async (client, guild) => {
     ].join('\n'))
     .addField('❯❯ Emoji', [
       `• Count: ${guild.emojis.size}`,
+      `• Still: ${guild.emojis.filter(emoji => !emoji.animated).size}`,
+      `• Animated: ${guild.emojis.filter(emoji => emoji.animated).size}`,
       // eslint-disable-next-line no-cond-assign
       guild.emojis.map(emoji => `${emoji}${(inc += 1) % 7 ? '' : '\n'}`).join(''),
     ].join('\n'))
