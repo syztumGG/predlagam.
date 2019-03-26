@@ -23,7 +23,7 @@ client.readdir('./events').forEach((file) => {
 });
 
 // login
-client.login(require('./storage/token'));
+client.login(require('./storage/tokens').TOKEN);
 
 /*                              ____                                */
 /*         ____  ________  ____/ / /___ _____ _____ _____ ___       */
