@@ -11,6 +11,7 @@ client.commands = new Collection();
 client.logger = require('./utils/logger');
 require('./storage/config')(client);
 require('./utils/utils')(client);
+require('dotenv').config();
 
 // load commands
 client.rr('./commands').forEach((file) => {
@@ -23,7 +24,7 @@ client.readdir('./events').forEach((file) => {
 });
 
 // login
-client.login(require('./storage/tokens').TOKEN);
+client.login(process.env.TOKEN);
 
 /*                              ____                                */
 /*         ____  ________  ____/ / /___ _____ _____ _____ ___       */

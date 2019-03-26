@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const DBL = require('dblapi.js');
 
 module.exports = (client) => {
-  const dbl = new DBL(require('../storage/tokens').dblTOKEN);
+  const dbl = new DBL(process.env.DBL_TOKEN);
   const { size } = client.guilds;
 
   setInterval(() => dbl.postStats(size), 1800000);
