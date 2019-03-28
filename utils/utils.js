@@ -30,7 +30,7 @@ const utils = {
     return evaled;
   }, // clean up promises and dive deeper into structures with flags
   async evalIsReserved(evaled, message, err) {
-    const cleaned = await utils.clean(evaled, message.flags[0]).then(c => c.replace(message.client.TOKEN, '{ T O K E N }')); // get rid of my token
+    const cleaned = await utils.clean(evaled, message.flags[0]).then(c => c.replace(message.client.token, '{ T O K E N }')); // get rid of my token
     if (err) {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${cleaned}\n\`\`\``);
       return;

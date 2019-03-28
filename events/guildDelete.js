@@ -6,13 +6,12 @@ module.exports = async (client, guild) => {
     .addField('❯❯ Guild Info', [
       `• Name: ${guild}`,
       `• ID: ${guild.id}`,
-      `• Owner: ${await guild.members.fetch(guild.ownerID)}`,
+      `• Owner Name: ${await guild.members.fetch(guild.ownerID).then(member => member.displayName)}`,
+      `• Owner ID: ${guild.ownerID}`,
     ].join('\n'))
     .addField('❯❯ Guild Stats', [
-      `• Channels: ${guild.channels.filter(chan => ['text', 'voice'].includes(chan.type)).size.toLocaleString('en-US')}`,
       `• Members: ${guild.memberCount.toLocaleString('en-US')}`,
-      `• Roles: ${guild.roles.size.toLocaleString('en-US')}`,
-      `• Emoji: ${guild.emojis.size.toLocaleString('en-US')}`,
+      `• Roles: ${guild.roles.size}`,
     ].join('\n'))
     .setThumbnail(guild.iconURL())
     .setTimestamp();
