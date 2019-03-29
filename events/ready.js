@@ -1,13 +1,17 @@
 const chalk = require('chalk');
-const DBL = require('dblapi.js');
+const DBL = require('dblapi.js')
 
 module.exports = (client) => {
   const dbl = new DBL(process.env.DBL_TOKEN);
-  const { size } = client.guilds;
+  dbl.postStats(client.guilds.size);
 
-  setInterval(() => dbl.postStats(size), 1800000);
-
-  client.logger.log(`${chalk.yellow(client.user.username)} ${chalk.green('online')} in ${size} server${size === 1 ? '' : 's'}.`);
+  client.logger.log([
+    chalk.yellow(client.user.username),
+    chalk.green('online'),
+    'in',
+    client.guilds.size,
+    `server${client.guilds.size === 1 ? '' : 's'}.`,
+  ].join(' '));
   client.logger.log(`Loaded ${client.commands.size} ${chalk.cyan('commands.')}`);
   client.user.setActivity(`${client.PREFIX}help`, { type: 'PLAYING' });
 };

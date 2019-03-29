@@ -1,6 +1,10 @@
 const { MessageEmbed } = require('discord.js');
+const DBL = require('dblapi.js');
 
 module.exports = async (client, guild) => {
+  const dbl = new DBL(process.env.DBL_TOKEN);
+  dbl.postStats(client.guilds.size);
+
   const guildDeleteEmbed = new MessageEmbed()
     .setColor('#ea3842')
     .addField('❯❯ Guild Info', [
