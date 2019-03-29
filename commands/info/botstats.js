@@ -15,7 +15,7 @@ module.exports = {
         `• Servers: ${client.guilds.size.toLocaleString('en-US')}`,
         `• Channels: ${client.channels.filter(chan => ['text', 'voice'].includes(chan.type)).size.toLocaleString('en-US')}`,
         `• Users: ${client.guilds.reduce((a, c) => a + c.memberCount, 0).toLocaleString('en-US')}`,
-        `• Commands: ${client.commands.size}`,
+        `• Commands: ${client.commands.size - 3}`, // base, eval, restart
       ].join('\n'), true)
       .addField('❯❯ Versions', `• [Node](https://nodejs.org): ${process.version}\n• [Discord.js](https://discord.js.org): v${version}`, true)
       .addField('❯❯ Source Code', '• [View Here](https://github.com/syztumGG/predlagam.)', true)
