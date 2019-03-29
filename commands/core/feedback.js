@@ -6,7 +6,7 @@ module.exports = {
   aliases: ['fb'],
   args: true,
   usage: '<feedback>',
-  exec(client, message, args) {
+  async exec(client, message, args) {
     const feedbackEmbed = new MessageEmbed()
       .setColor('#4cb9fa')
       .addField('❯❯ Author Info', [
@@ -18,6 +18,7 @@ module.exports = {
       .setThumbnail(message.author.displayAvatarURL())
       .setTimestamp();
 
-    client.channels.get('559444037334073344').send('📥 Feedback Received:', { embed: feedbackEmbed });
+    await client.channels.get('559444037334073344').send('📥 Feedback Received:', { embed: feedbackEmbed });
+    message.channel.send('Thank you for the feedback! I appreciate your support.');
   },
 };
