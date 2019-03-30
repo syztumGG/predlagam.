@@ -15,7 +15,7 @@ require('dotenv').config();
 
 // load commands
 client.rr('./commands').forEach((file) => {
-  const name = file.split('\\')[file.split('\\').length - 1].split('.')[0];
+  const name = file.split('/')[file.split('/').length - 1].split('.')[0];
   client.commands.set(name, require(`./${file}`));
 });
 // load events

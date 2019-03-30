@@ -17,7 +17,7 @@ const utils = {
       return fs.statSync(filename).isDirectory() ? utils.rr(filename) : filename; // if file is dir, run again
     });
     return files.flat();
-  }, // recursively read through directories
+  }, // recursively read through directories (i don't like dependencies so i did it myself)
   async awaitReply(message, question, time = 120000) {
     await message.channel.send(question);
     const coll = await message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time }); // rEaD tHe dOcS
