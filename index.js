@@ -1,13 +1,8 @@
-// require modules
 const { Client, Collection } = require('discord.js');
-const disabledEvents = require('./storage/disabledEvents');
 
-// instantiate client
-const client = new Client({ disabledEvents });
+const client = new Client({ disabledEvents: ['TYPING_START'] });
 
-// commands collection
 client.commands = new Collection();
-// probably not the best idea to have everything carried through the client, but it works so /shrug
 client.logger = require('./utils/logger');
 require('./storage/config')(client);
 require('./utils/utils')(client);
