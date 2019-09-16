@@ -26,4 +26,4 @@ predlagam. is the ultimate way to implement suggestions in your Discord server. 
 * [discordbots.org](https://discordbots.org/bot/557063959606460458)
 
 ### ❯❯ License
-* [MIT](https://github.com/syztumGG/predlagam./blob/master/LICENSE.md) © 2019 [Sam Gilburg](https://github.com/syztumGG)
+* [MIT](https://github.com/syztum/predlagam./blob/master/LICENSE.md) © 2019 [Sam Gilburg](https://github.com/syztum)
